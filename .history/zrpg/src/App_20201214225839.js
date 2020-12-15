@@ -4,11 +4,8 @@ import {Route, BrowserRouter as Router, Link} from "react-router-dom";
 import Main from "./Pages/Main";
 import EditItem from "./Pages/EditItem";
 import AddItem from './Pages/AddItem';
-import React, { Component } from 'react';
 
-class App extends Component {
-  render() {
-
+function App() {
   return (
     <Router>
     <div id='app-id' className='app-class'>
@@ -17,13 +14,13 @@ class App extends Component {
   <h2> Please add a title to begin </h2>
     </div>
 
-    <button> <Link to='/AddItem'> Add Item </Link> </button>
+    <Link to='/AddItem'> Add Item </Link>
+    <Link to='/EditItem'> Edit Item </Link>
 <Route path="/" exact component={Main} />
 <Route path="/edititem" component={EditItem} />
 <Route path="/additem" component={AddItem} />
     </Router>
   );
-}
 }
 
 export default App;

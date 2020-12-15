@@ -8,6 +8,10 @@ import './css/main.css';
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  React.createElement(App)
-, document.getElementById('root'))
+<div className='Title Nav'>
+
+  <App />
+</div>
+
+, rootElement)
 

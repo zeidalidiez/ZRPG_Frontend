@@ -8,6 +8,6 @@ import './css/main.css';
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  React.createElement(App)
+  <App />
 , document.getElementById('root'))
 
