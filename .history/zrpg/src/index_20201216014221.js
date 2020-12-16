@@ -10,6 +10,8 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
 <div>
 <App />
+<App />
+<App /> 
 </div>
 , document.getElementById('root'))
 
