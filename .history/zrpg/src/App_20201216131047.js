@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import Main from "./Pages/Main";
 import EditItem from "./Pages/EditItem";
 import AddItem from './Pages/AddItem';
+import React, { Component } from 'react';
 
 class App extends Component {
 

@@ -16,8 +16,9 @@ class AddItem extends Component {
             <textarea name="notes" id="notes" placeholder="notes"/>
           <label htmlFor="goal">Goal: </label>
               <input type="text" name="goal" id="goal" />
-          <div className="additem__buttons">
-            <button type="submit" >Save Title</button>
+          <div className="addbookmark__buttons">
+            <button>Cancel</button>
+            <button type="submit" >Save</button>
           </div>  
         </form>
       </div>
