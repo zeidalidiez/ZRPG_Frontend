@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BookForm from "./BookForm";
+import BookForm from "./Pages/BookForm";
 import ApiContext from "../ApiContext";
 import config from "../config";
 
@@ -30,9 +30,9 @@ export default class AddItem extends Component {
         if (!res.ok) return res.json().then((e) => Promise.reject(e));
         return res.json();
       })
-      .then((title) => {
-        this.context.addTitle(title);
-        this.props.history.push(`/${title.id}`);
+      .then((note) => {
+        this.context.addNote(note);
+        this.props.history.push(`/folder/${note.folderid}`);
       })
       .catch((error) => {
         console.error({ error });
@@ -40,30 +40,34 @@ export default class AddItem extends Component {
   };
 
   render() {
+    const { folders = [] } = this.context;
     return (
-      <section className="AddTitle">
-        <h2>Add a Book Title</h2>
-        <BookForm onSubmit={this.handleSubmit}>
+      <section className="AddNote">
+        <h2>Create a note</h2>
+        <NotefulForm onSubmit={this.handleSubmit}>
           <div className="field">
-            <label htmlFor="title-name">Title/Book</label>
-            <input type="text" id="title-nameID" name="title-name" />
+            <label htmlFor="note-name-input">Name</label>
+            <input type="text" id="note-name-input" name="note-name" />
           </div>
           <div className="field">
-            <label htmlFor="title-notes">Notes</label>
-            <textarea id="title-notesID" name="title-notes" />
+            <label htmlFor="note-content-input">Content</label>
+            <textarea id="note-content-input" name="note-content" />
           </div>
           <div className="field">
-            <label htmlFor="title-goal">Reading Goal</label>
-            <textarea id="title-goalID" name="title-goal" />
-          </div>
-          <div className="field">
-            <label htmlFor="title-linksource">Link or Source</label>
-            <textarea id="title-linksourceID" name="title-linksource" />
+            <label htmlFor="note-folder-select">Folder</label>
+            <select id="note-folder-select" name="note-folder-id">
+              <option value={null}>...</option>
+              {folders.map((folder) => (
+                <option key={folder.id} value={folder.id}>
+                  {folder.foldername}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="buttons">
             <button type="submit">Add note</button>
           </div>
-        </BookForm>
+        </NotefulForm>
       </section>
     );
   }

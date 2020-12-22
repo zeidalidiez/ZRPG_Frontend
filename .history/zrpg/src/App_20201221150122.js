@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import NoteListNav from '../NoteListNav/NoteListNav'
-// import NotePageNav from '../NotePageNav/NotePageNav'
-import BookListMain from './Pages/BookListMain'
-import BookPageMain from './Pages/BookPageMain'
-import AddTitle from './Pages/AddItem'
+import NoteListNav from '../NoteListNav/NoteListNav'
+import NotePageNav from '../NotePageNav/NotePageNav'
+import NoteListMain from '../NoteListMain/NoteListMain'
+import NotePageMain from '../NotePageMain/NotePageMain'
+import AddNote from '../AddNote/AddNote'
 import ApiContext from './ApiContext'
-import config from './config'
+import config from '../config'
 
 class App extends Component {
   state = {
@@ -18,79 +18,98 @@ class App extends Component {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/books`)
     ])
-      .then(([titleRes]) => {
-        if (!titleRes.ok)
-          return titleRes.json().then(e => Promise.reject(e))
+      .then(([notesRes, foldersRes]) => {
+        if (!notesRes.ok)
+          return notesRes.json().then(e => Promise.reject(e))
+        if (!foldersRes.ok)
+          return foldersRes.json().then(e => Promise.reject(e))
 
         return Promise.all([
-          titleRes.json()
+          notesRes.json(),
+          foldersRes.json(),
         ])
       })
-      .then(([titles]) => {
-        this.setState({titles})
+      .then(([notes, folders]) => {
+        this.setState({ notes, folders })
       })
       .catch(error => {
         console.error({ error })
       })
   }
-  
 
-  handleAddTitle = title => {
+  handleAddFolder = folder => {
     this.setState({
-      titles: [
-        ...this.state.titles,
-        title
+      folders: [
+        ...this.state.folders,
+        folder
       ]
     })
   }
 
-  handleDeleteTitle = titleid => {
+  handleAddNote = note => {
     this.setState({
-      titles: this.state.title.filter(title => title.id !== titleid)
+      notes: [
+        ...this.state.notes,
+        note
+      ]
     })
   }
 
-  // renderNavRoutes() {
-  //   return (
-  //     <>
-  //       {['/'].map(path =>
-  //         <Route
-  //           exact
-  //           key={path}
-  //           path={path}
-  //           component={NoteListNav}
-  //         />
-  //       )}
-  //       <Route
-  //         path='/title/:titleid'
-  //         component={NotePageNav}
-  //       />
-  //       <Route
-  //         path='/addtitle'
-  //         component={NotePageNav}
-  //       />
-  //     </>
-  //   )
-  // }
+  handleDeleteNote = noteid => {
+    this.setState({
+      notes: this.state.notes.filter(note => note.id !== noteid)
+    })
+  }
 
-  renderMainRoutes() {
+  renderNavRoutes() {
     return (
       <>
-        {['/'].map(path =>
+        {['/', '/folder/:folderid'].map(path =>
           <Route
             exact
             key={path}
             path={path}
-            component={BookListMain}
+            component={NoteListNav}
           />
         )}
         <Route
-          path='/book/:titleid'
-          component={BookPageMain}
+          path='/note/:noteid'
+          component={NotePageNav}
         />
         <Route
-          path='/addtitle'
-          component={AddTitle}
+          path='/add-folder'
+          component={NotePageNav}
+        />
+        <Route
+          path='/add-note'
+          component={NotePageNav}
+        />
+      </>
+    )
+  }
+
+  renderMainRoutes() {
+    return (
+      <>
+        {['/', '/folder/:folderid'].map(path =>
+          <Route
+            exact
+            key={path}
+            path={path}
+            component={NoteListMain}
+          />
+        )}
+        <Route
+          path='/note/:noteid'
+          component={NotePageMain}
+        />
+        <Route
+          path='/add-folder'
+          component={AddFolder}
+        />
+        <Route
+          path='/add-note'
+          component={AddNote}
         />
       </>
     )
@@ -98,19 +117,21 @@ class App extends Component {
 
   render() {
     const value = {
-      titles: this.state.titles,
-      addTitle: this.handleAddTitle,
-      deleteTitle: this.handleDeleteTitle,
+      notes: this.state.notes,
+      folders: this.state.folders,
+      addFolder: this.handleAddFolder,
+      addNote: this.handleAddNote,
+      deleteNote: this.handleDeleteNote,
     }
     return (
       <ApiContext.Provider value={value}>
         <div className='App'>
           <nav className='App__nav'>
-            {/* {this.renderNavRoutes()} */}
+            {this.renderNavRoutes()}
           </nav>
           <header className='App__header'>
             <h1>
-              <Link to='/'>ReadNext</Link>
+              <Link to='/'>Noteful</Link>
               {' '}
               <FontAwesomeIcon icon='check-double' />
             </h1>

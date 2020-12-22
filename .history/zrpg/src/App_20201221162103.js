@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import NotePageNav from '../NotePageNav/NotePageNav'
 import BookListMain from './Pages/BookListMain'
 import BookPageMain from './Pages/BookPageMain'
-import AddTitle from './Pages/AddItem'
+import AddTitle from '../Pages/AddItem'
 import ApiContext from './ApiContext'
-import config from './config'
+import config from '../config'
 
 class App extends Component {
   state = {

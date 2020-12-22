@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter } from 'react-router-dom'
 import 'typeface-roboto'
-import './css/main.css'
+import './index.css'
 import App from './App.js'
 
 library.add(faPlus, faChevronLeft, faTrashAlt, faCheckDouble)

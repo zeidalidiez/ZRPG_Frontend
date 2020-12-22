@@ -3,11 +3,11 @@ import { Route, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import NoteListNav from '../NoteListNav/NoteListNav'
 // import NotePageNav from '../NotePageNav/NotePageNav'
-import BookListMain from './Pages/BookListMain'
-import BookPageMain from './Pages/BookPageMain'
-import AddTitle from './Pages/AddItem'
+import BookListMain from '../Pages/BookListMain'
+import BookPageMain from '../Pages/BookPageMain'
+import AddTitle from '../Pages/AddTitle'
 import ApiContext from './ApiContext'
-import config from './config'
+import config from '../config'
 
 class App extends Component {
   state = {
@@ -50,28 +50,28 @@ class App extends Component {
     })
   }
 
-  // renderNavRoutes() {
-  //   return (
-  //     <>
-  //       {['/'].map(path =>
-  //         <Route
-  //           exact
-  //           key={path}
-  //           path={path}
-  //           component={NoteListNav}
-  //         />
-  //       )}
-  //       <Route
-  //         path='/title/:titleid'
-  //         component={NotePageNav}
-  //       />
-  //       <Route
-  //         path='/addtitle'
-  //         component={NotePageNav}
-  //       />
-  //     </>
-  //   )
-  // }
+  renderNavRoutes() {
+    return (
+      <>
+        {['/'].map(path =>
+          <Route
+            exact
+            key={path}
+            path={path}
+            component={NoteListNav}
+          />
+        )}
+        <Route
+          path='/title/:titleid'
+          component={NotePageNav}
+        />
+        <Route
+          path='/addtitle'
+          component={NotePageNav}
+        />
+      </>
+    )
+  }
 
   renderMainRoutes() {
     return (
@@ -85,12 +85,12 @@ class App extends Component {
           />
         )}
         <Route
-          path='/book/:titleid'
+          path='/note/:noteid'
           component={BookPageMain}
         />
         <Route
-          path='/addtitle'
-          component={AddTitle}
+          path='/add-note'
+          component={AddItem}
         />
       </>
     )
@@ -106,7 +106,7 @@ class App extends Component {
       <ApiContext.Provider value={value}>
         <div className='App'>
           <nav className='App__nav'>
-            {/* {this.renderNavRoutes()} */}
+            {this.renderNavRoutes()}
           </nav>
           <header className='App__header'>
             <h1>
