@@ -18,12 +18,12 @@ export default class BookPageMain extends React.Component {
   render() {
     const { titles = [] } = this.context
     const { titleid } = this.props.match.params
-    const thetitle = findBook(titles, parseInt(titleid))
+    const title = findBook(titles, parseInt(titleid)) || { content: '' }
     return (
       <section className='BookPageMain'>
         <Book
-          id={thetitle.id}
-          titlename={thetitle.titlename}
+          id={titles.id}
+          titlename={titles.titlename}
           onDeleteNote={this.handleDeleteTitle}
         />
         <div className='BookPageMain__content'>

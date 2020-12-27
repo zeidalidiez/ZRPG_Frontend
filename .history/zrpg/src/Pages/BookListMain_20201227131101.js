@@ -15,11 +15,11 @@ export default class BookListMain extends React.Component {
   static contextType = ApiContext
 
   render() {
-    const { titles = [] } = this.context
+    const { title = [] } = this.context
     
     return (
       <section className='BookListMain'>
-        <ul>{titles.map(title => 
+        <ul>
             <li key={title.id}>
               <Book
                 id={title.id}
@@ -27,7 +27,6 @@ export default class BookListMain extends React.Component {
                 linksource={title.linksource}
               />
             </li>
-        )}
         </ul>
         <div className='BookListMain__button-container'>
           <CircleButton

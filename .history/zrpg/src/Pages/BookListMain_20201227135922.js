@@ -15,11 +15,11 @@ export default class BookListMain extends React.Component {
   static contextType = ApiContext
 
   render() {
-    const { titles = [] } = this.context
+    const { title = [] } = this.context
     
     return (
       <section className='BookListMain'>
-        <ul>{titles.map(title => 
+        <ul>{notes.map(title => 
             <li key={title.id}>
               <Book
                 id={title.id}
