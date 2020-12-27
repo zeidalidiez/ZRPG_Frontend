@@ -20,7 +20,7 @@ export default class Book extends React.Component {
       .then(() => {
         this.context.deleteTitle(titleid)
         // allow parent to perform extra behaviour
-        this.props.onDeleteBook(titleid)
+        this.props.onDeleteTitle(titleid)
       })
       .catch(error => {
         console.error({ error })
