@@ -65,12 +65,12 @@ a:link {
     color: blue;
   }
 
-  .BookListMain__button-container {
+  .NavCircleButton {
     font-size: 22px;
     color: Gold;
     float: center;
-    border: 5px solid rgb(7, 35, 126);
-    padding: 5px;
-    margin: 5px;
-    background-color: antiquewhite
+    border: 15px solid rgb(7, 35, 126);
+    padding: 20px;
+    margin: 20px;
+    background-color: antiquewhite;
   }

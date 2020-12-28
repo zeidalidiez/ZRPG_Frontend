@@ -65,12 +65,11 @@ a:link {
     color: blue;
   }
 
-  .BookListMain__button-container {
+  .BookListMain__button {
     font-size: 22px;
     color: Gold;
     float: center;
-    border: 5px solid rgb(7, 35, 126);
+    border: 1px solid rgb(7, 35, 126);
     padding: 5px;
     margin: 5px;
-    background-color: antiquewhite
   }

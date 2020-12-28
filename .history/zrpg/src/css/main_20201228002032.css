@@ -12,7 +12,6 @@ h1 {
  border: 15px solid rgb(7, 35, 126);
  padding: 20px;
  margin: 20px;
- background-color: antiquewhite;
 }
 
 p {
@@ -47,12 +46,12 @@ ul {
 
   /* unvisited link */
 a:link {
-    color: lightgoldenrodyellow;
+    color: rgb(43, 105, 219);
   }
   
   /* visited link */
   a:visited {
-    color: darkslateblue;
+    color: lightgoldenrodyellow;
   }
   
   /* mouse over link */
@@ -63,14 +62,4 @@ a:link {
   /* selected link */
   a:active {
     color: blue;
-  }
-
-  .BookListMain__button-container {
-    font-size: 22px;
-    color: Gold;
-    float: center;
-    border: 5px solid rgb(7, 35, 126);
-    padding: 5px;
-    margin: 5px;
-    background-color: antiquewhite
   }
