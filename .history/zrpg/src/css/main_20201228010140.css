@@ -80,22 +80,3 @@ a:link {
   /* further add/override styling for even wider (800px+) screens here */  
     }  
   }  
-  
-  label {
-    font-size: 16px;
-    color: rgb(29, 5, 116);
-    float: center;
-    border: 1px solid rgb(7, 35, 126);
-    padding: 0px;
-    margin: 0px;
-    background-color: antiquewhite
-  }
-  h2 {
-    font-size: 32px;
-    color: rgb(29, 5, 116);
-    float: center;
-    border: 1px solid rgb(7, 35, 126);
-    padding: 0px;
-    margin: 0px;
-    background-color: antiquewhite
-  }
