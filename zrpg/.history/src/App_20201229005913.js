@@ -113,11 +113,7 @@ class App extends Component {
               <Link to='/'>ReadNext</Link>
             </h1>
           </header>
-          <div className="Tutorial"> 
-          <h3> Instructions : Add titles to begin tracking, existing titles will populate on main page. </h3> 
-          <br />
-          <p></p>
-          </div>
+          <div>Test</div>
 
 
           <main className='App__main'>

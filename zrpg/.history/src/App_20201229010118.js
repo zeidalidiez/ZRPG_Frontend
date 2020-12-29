@@ -114,9 +114,9 @@ class App extends Component {
             </h1>
           </header>
           <div className="Tutorial"> 
-          <h3> Instructions : Add titles to begin tracking, existing titles will populate on main page. </h3> 
+          <h2> Instructions </h2> 
           <br />
-          <p></p>
+          <p>Add titles to begin tracking, existing titles will populate on main page. </p>
           </div>
 
 
