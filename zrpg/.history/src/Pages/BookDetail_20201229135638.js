@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { API_ENDPOINT } from '../config';
-import { Link } from 'react-router-dom';
-
 
 class BookDetail extends Component {
 	state = {
@@ -67,9 +65,7 @@ class BookDetail extends Component {
 					/>
 				</div>
 				<div className='buttons'>
-                <Link to='/'>
-                <button type='button'>Home</button>
-                </Link>
+					<button type='button'>Home</button>
 				</div>
 				<br />
 			</form>

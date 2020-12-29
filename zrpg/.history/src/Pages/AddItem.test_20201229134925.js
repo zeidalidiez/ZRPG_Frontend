@@ -8,7 +8,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div')
   ReactDOM.render(
   <BrowserRouter>
-  <AddItem />
+  <Book />
   </BrowserRouter>
   ,div)
   ReactDOM.unmountComponentAtNode(div)
