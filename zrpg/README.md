@@ -10,9 +10,11 @@ READNEXT is a full-stack application where users can  access an interactive plan
 Language: Javascript
 Technologies Used: Node.js, Express, PostgresQL, jQuery, HTML/CSS
 
-### Dashboard ![Dashboard](https://i.imgur.com/9ueIszw.png)
+### Dashboard 
+![Dashboard](https://i.imgur.com/9ueIszw.png)
 
-### Landing Page ![LandingPage](https://i.imgur.com/0dslach.png)
+### Landing Page 
+![LandingPage](https://i.imgur.com/0dslach.png)
 
 
 POST /books
