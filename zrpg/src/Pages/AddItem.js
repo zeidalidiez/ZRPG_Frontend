@@ -1,77 +1,75 @@
-import React, { Component } from "react";
-import BookForm from "./BookForm";
-import ApiContext from "../ApiContext";
-import config from "../config";
+import React, { Component } from 'react';
+import BookForm from './BookForm';
+import ApiContext from '../ApiContext';
+import { API_ENDPOINT } from '../config';
 
 export default class AddItem extends Component {
-  static defaultProps = {
-    history: {
-      push: () => {},
-    },
-  };
-  static contextType = ApiContext;
+	static defaultProps = {
+		history: {
+			push: () => {}
+		}
+	};
+	static contextType = ApiContext;
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const newTitle = {
-      title: e.target["title-name"].value,
-      notes: e.target["title-notes"].value,
-      goal: e.target["title-goal"].value,
-      linksource: e.target["title-linksource"].value,
-    };
-    fetch(`${config.API_ENDPOINT}/books`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newTitle),
-    })
-      .then((res) => {
-        if (!res.ok) return res.json().then((e) => Promise.reject(e));
-        return res.json();
-      })
-      .then((title) => {
-        this.context.addTitle(title);
-        this.props.history.push(`/books/${title.id}`);
-      })
-      .catch((error) => {
-        console.error({ error });
-      });
-  };
+	handleSubmit = (e) => {
+		e.preventDefault();
+		const newTitle = {
+			title: e.target['title-name'].value,
+			notes: e.target['title-notes'].value,
+			goal: e.target['title-goal'].value,
+			linksource: e.target['title-linksource'].value
+		};
+		fetch(`${API_ENDPOINT}/books`, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(newTitle)
+		})
+			.then((res) => {
+				if (!res.ok) return res.json().then((e) => Promise.reject(e));
+				return res.json();
+			})
+			.then((title) => {
+				this.context.addTitle(title);
+				this.props.history.push(`/books/${title.id}`);
+			})
+			.catch((error) => {
+				console.error({ error });
+			});
+	};
 
-  render() {
-    return (
-      <section className="AddTitle">
-        <h2>Add a Book Title</h2>
-        <BookForm onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label htmlFor="title-name">Title/Book</label>
-            <input type="text" id="title-nameID" name="title-name" required/>
-          </div>
-          <div className="field">
-            <label htmlFor="title-notes">Notes</label>
-            <textarea id="title-notesID" name="title-notes" required/>
-          </div>
-          <div className="field">
-            <label htmlFor="title-goal">Reading Goal</label>
-            <textarea id="title-goalID" name="title-goal" />
-          </div>
-          <div className="field">
-            <label htmlFor="title-linksource">Link or Source</label>
-            <textarea id="title-linksourceID" name="title-linksource" />
-          </div>
-          <div className="buttons">
-            <button type="submit">Add note</button>
-          </div>
-        </BookForm>
-      </section>
-    );
-  }
+	render() {
+		return (
+			<section className='AddTitle'>
+				<h2>Add a Book Title</h2>
+				<BookForm onSubmit={this.handleSubmit}>
+					<div className='field'>
+						<label htmlFor='title-name'>Title/Book</label>
+						<input type='text' id='title-nameID' name='title-name' required />
+					</div>
+					<div className='field'>
+						<label htmlFor='title-notes'>Notes</label>
+						<textarea id='title-notesID' name='title-notes' required />
+					</div>
+					<div className='field'>
+						<label htmlFor='title-goal'>Reading Goal</label>
+						<textarea id='title-goalID' name='title-goal' />
+					</div>
+					<div className='field'>
+						<label htmlFor='title-linksource'>Link or Source</label>
+						<textarea id='title-linksourceID' name='title-linksource' />
+					</div>
+					<div className='buttons'>
+						<button type='submit'>Add note</button>
+					</div>
+				</BookForm>
+			</section>
+		);
+	}
 }
 
-
 // import React, { Component } from  'react';
-
 
 // class AddItem extends Component {
 //   render() {
@@ -89,7 +87,7 @@ export default class AddItem extends Component {
 //               <input type="text" name="goal" id="goal" />
 //           <div className="additem__buttons">
 //             <button type="submit" >Save Title</button>
-//           </div>  
+//           </div>
 //         </form>
 //       </div>
 //     );
