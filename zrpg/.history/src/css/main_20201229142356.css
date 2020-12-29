@@ -119,8 +119,7 @@ a:link {
   }
   div {
     display: flex;
-    justify-content: center;
-
+    justify-content: right;
   }
 
   .BookDetail {
@@ -131,15 +130,15 @@ a:link {
   /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {
   h1 {
-    font-size: 18px;
-    border: 1px solid rgb(7, 35, 126);
-    padding: 1px;
-    margin: 1px;
+    font-size: 28px;
+    border: 5px solid rgb(7, 35, 126);
+    padding: 5px;
+    margin: 5px;
     background-color: antiquewhite;
    }
 
    h2 {
-    font-size: 12px;
+    font-size: 16px;
     color: rgb(29, 5, 116);
     border: 1px solid rgb(7, 35, 126);
     padding: 15px;
@@ -151,12 +150,6 @@ a:link {
     justify-content: center;
     font-size: 12px;
   }
-
-  .BookDetail {
-    display: flex;
-    flex-direction: column;
-  }
-
 
 
 }

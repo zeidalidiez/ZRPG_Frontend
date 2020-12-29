@@ -152,11 +152,5 @@ a:link {
     font-size: 12px;
   }
 
-  .BookDetail {
-    display: flex;
-    flex-direction: column;
-  }
-
-
 
 }
