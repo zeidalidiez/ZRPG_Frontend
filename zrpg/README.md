@@ -13,12 +13,6 @@ Technologies Used: Node.js, Express, PostgresQL, jQuery, HTML/CSS
 ##Dashboard ![Dashboard](https://i.imgur.com/9ueIszw.png)
 
 ##Landing Page ![LandingPage](https://i.imgur.com/0dslach.png)
-Display habits and rewards
-
-
-POST /habits
-
-Create new book titles
 
 
 POST /books
